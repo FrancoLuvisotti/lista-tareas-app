@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Lista de Tareas</h1>
+
+        <form id="task-form">
+            <div class="form-group">
+                <label for="task-input">Título de la Tarea</label>
+                <input type="text" id="task-input" class="form-control" placeholder="Título de la Tarea" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea id="description" class="form-control" placeholder="Descripción" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+        </form>
+
+        <ul id="task-list" class="list-group mt-4"></ul>
+
+        <!-- Alertas -->
+        <div class="alert alert-success alert-dismissible fade" id="successAlert" role="alert" style="display: none;">
+            Tarea completada exitosamente.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade" id="errorAlert" role="alert" style="display: none;">
+            Ha ocurrido un error. Intenta de nuevo.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <!-- Modal de Edición de Tarea -->
+        <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTaskModalLabel">Editar Tarea</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="edit-task-form">
+                            <div class="form-group">
+                                <label for="edit-task-title">Título de la Tarea</label>
+                                <input type="text" id="edit-task-title" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-task-description">Descripción</label>
+                                <textarea id="edit-task-description" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Actualizar Tarea</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Carga -->
+        <div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Cargando...</span>
+                        </div>
+                        <p>Cargando...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/task.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
